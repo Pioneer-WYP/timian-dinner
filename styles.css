@@ -463,15 +463,25 @@ textarea:focus {
   }
 
   .hero {
-    min-height: 72vh;
+    min-height: 66vh;
   }
 
   .hero img {
-    object-position: 54% center;
+    object-position: 34% center;
   }
 
   .hero-content {
     padding-bottom: 42px;
+  }
+
+  .hero h1 {
+    max-width: 9em;
+    font-size: 48px;
+    line-height: 1.08;
+  }
+
+  .hero p:last-child {
+    font-size: 18px;
   }
 
   .event-strip {
