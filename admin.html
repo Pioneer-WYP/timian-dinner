@@ -18,8 +18,9 @@
         <form class="admin-form" id="adminForm">
           <label>
             后台口令
-            <input id="adminCode" type="password" placeholder="请输入后台口令" />
+            <input id="adminCode" type="text" inputmode="text" placeholder="请输入后台口令" />
           </label>
+          <button class="admin-hint" type="button" id="adminCodeHint">一键填入</button>
           <button type="submit">查看结果</button>
         </form>
         <p class="error-message" id="adminError" role="alert"></p>

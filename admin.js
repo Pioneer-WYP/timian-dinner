@@ -1,5 +1,6 @@
 const adminForm = document.querySelector("#adminForm");
 const adminCode = document.querySelector("#adminCode");
+const adminCodeHint = document.querySelector("#adminCodeHint");
 const adminError = document.querySelector("#adminError");
 const adminResults = document.querySelector("#adminResults");
 const ordersList = document.querySelector("#ordersList");
@@ -82,3 +83,9 @@ adminForm.addEventListener("submit", async (event) => {
 });
 
 exportCsv.addEventListener("click", downloadCsv);
+
+adminCodeHint.addEventListener("click", () => {
+  adminCode.value = "体面老板";
+  adminCode.focus();
+  adminError.textContent = "";
+});

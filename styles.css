@@ -475,7 +475,7 @@ textarea:focus {
 
 .admin-form {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 140px;
+  grid-template-columns: minmax(0, 1fr) 112px 140px;
   gap: 12px;
   align-items: end;
 }
@@ -488,6 +488,13 @@ textarea:focus {
   color: white;
   padding: 0 18px;
   font-weight: 800;
+}
+
+.admin-hint {
+  border: 1px solid rgba(217, 164, 65, 0.7);
+  background: rgba(217, 164, 65, 0.14) !important;
+  color: #75521a !important;
+  box-shadow: none;
 }
 
 .admin-results {
