@@ -1,5 +1,5 @@
 const PASSCODE = "体面";
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvu6mBijrG52wkGnqA6VK-Q_DX1jnosVKBSETiA1lY_-DXAglIo6_zrfYE3mWMoahjQQ/exec";
+const SUBMIT_ENDPOINT = "/api/orders";
 
 const dishes = {
   main: [
@@ -62,20 +62,18 @@ function showSelected(items, extraRequest) {
     : "<span>今日选择：交给王老板发挥</span>";
 }
 
-async function submitToGoogleSheet(payload) {
-  if (!GOOGLE_SCRIPT_URL) {
-    console.info("Google Script URL is empty. Submission blocked:", payload);
-    throw new Error("GOOGLE_SCRIPT_URL is not configured.");
-  }
-
-  const response = await fetch(GOOGLE_SCRIPT_URL, {
+async function submitOrder(payload) {
+  const response = await fetch(SUBMIT_ENDPOINT, {
     method: "POST",
-    mode: "no-cors",
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
+      "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(payload),
   });
+
+  if (!response.ok) {
+    throw new Error(`Submit failed: ${response.status}`);
+  }
 
   return response;
 }
@@ -123,16 +121,14 @@ orderForm.addEventListener("submit", async (event) => {
   };
 
   try {
-    await submitToGoogleSheet(payload);
+    await submitOrder(payload);
     successName.textContent = `${guestName} 的菜单已收到。`;
     showSelected(choices, extraRequest);
     successPanel.classList.remove("hidden");
     orderForm.reset();
     startAutoClose();
   } catch (error) {
-    formError.textContent = GOOGLE_SCRIPT_URL
-      ? "提交时卡了一下，请稍后再试。"
-      : "Google 表格接收地址还没配置，先别把链接发出去。";
+    formError.textContent = "提交时卡了一下，请稍后再试。";
     console.error(error);
   } finally {
     submitButton.disabled = false;

@@ -446,6 +446,102 @@ textarea:focus {
   font-weight: 700;
 }
 
+.admin-shell {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.admin-header {
+  margin-bottom: 22px;
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: clamp(36px, 7vw, 64px);
+  line-height: 1.08;
+}
+
+.admin-header p:last-child {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.admin-panel {
+  padding: 24px;
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px;
+  gap: 12px;
+  align-items: end;
+}
+
+.admin-form button,
+.admin-actions button {
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.admin-results {
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.admin-actions h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.orders-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf9;
+  padding: 16px;
+}
+
+.order-item div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.order-item strong {
+  font-size: 20px;
+}
+
+.order-item span,
+.empty-state {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.order-item p {
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
 @media (max-width: 720px) {
   .gate-card {
     width: min(440px, 100%);
@@ -494,5 +590,14 @@ textarea:focus {
 
   .dish-grid {
     grid-template-columns: 1fr;
+  }
+
+  .admin-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-actions {
+    display: grid;
+    justify-items: start;
   }
 }

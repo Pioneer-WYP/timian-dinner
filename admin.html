@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点菜结果后台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="admin-header">
+        <p class="eyebrow">王老板专属后台</p>
+        <h1>点菜结果</h1>
+        <p>输入后台口令后查看朋友提交的菜单，也可以导出 CSV。</p>
+      </section>
+
+      <section class="panel admin-panel">
+        <form class="admin-form" id="adminForm">
+          <label>
+            后台口令
+            <input id="adminCode" type="password" placeholder="请输入后台口令" />
+          </label>
+          <button type="submit">查看结果</button>
+        </form>
+        <p class="error-message" id="adminError" role="alert"></p>
+      </section>
+
+      <section class="panel admin-results hidden" id="adminResults">
+        <div class="admin-actions">
+          <h2>已提交菜单</h2>
+          <button type="button" id="exportCsv">导出 CSV</button>
+        </div>
+        <div class="orders-list" id="ordersList"></div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
