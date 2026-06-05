@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>王老板和蛋总请你来体面</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="gate-screen" id="gateScreen" aria-labelledby="gateTitle">
+        <div class="gate-card">
+          <img class="gate-photo" src="assets/guests.jpg" alt="拟邀请客人的合照" />
+          <p class="eyebrow">私人饭局通行证</p>
+          <h1 id="gateTitle">王老板和蛋总请你来体面</h1>
+          <p class="gate-copy">请说出今日暗号，进入点菜现场。</p>
+          <form class="gate-form" id="gateForm">
+            <label for="passcode">访问口令</label>
+            <div class="gate-row">
+              <input id="passcode" name="passcode" type="text" autocomplete="off" inputmode="text" />
+              <button type="submit">开席</button>
+            </div>
+            <button class="hint-button" type="button" id="passcodeHint">一键填入：体面</button>
+            <p class="error-message" id="gateError" role="alert"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="invite-screen hidden" id="inviteScreen">
+        <header class="hero">
+          <img src="assets/hosts.jpg" alt="王老板和蛋总的合照" />
+          <div class="hero-shade"></div>
+          <div class="hero-content">
+            <p class="eyebrow">2026.06.13 / 12:00</p>
+            <h1>王老板和蛋总请你来体面</h1>
+            <p>来家里吃饭，先把想吃的勾上。王老板负责体面，蛋总负责监督。</p>
+          </div>
+        </header>
+
+        <section class="event-strip" aria-label="饭局信息">
+          <div>
+            <span>时间</span>
+            <strong>2026年6月13日 12:00</strong>
+          </div>
+          <div>
+            <span>地点</span>
+            <strong>北京市朝阳区住欣家园</strong>
+          </div>
+        </section>
+
+        <form class="order-form" id="orderForm">
+          <section class="panel">
+            <div class="section-heading">
+              <p class="eyebrow">先留个名</p>
+              <h2>今日贵宾信息</h2>
+            </div>
+            <div class="field-grid">
+              <label>
+                姓名
+                <input name="guestName" type="text" autocomplete="name" placeholder="比如：不体面的重庆人" required />
+              </label>
+              <label>
+                忌口
+                <input name="dietaryNotes" type="text" placeholder="比如：不吃香菜、少辣、海鲜过敏" />
+              </label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="section-heading">
+              <p class="eyebrow">下饭类</p>
+              <h2>硬菜先点，快乐加倍</h2>
+            </div>
+            <div class="dish-grid" id="mainDishes"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-heading">
+              <p class="eyebrow">蔬菜类</p>
+              <h2>清爽一点，也算体面</h2>
+            </div>
+            <div class="dish-grid" id="veggieDishes"></div>
+          </section>
+
+          <section class="panel">
+            <div class="section-heading">
+              <p class="eyebrow">隐藏菜单</p>
+              <h2>还有什么想吃的？</h2>
+            </div>
+            <label>
+              其他点菜需求
+              <textarea name="extraRequest" rows="4" placeholder="想吃什么、想喝什么、想加什么，都可以写在这里。"></textarea>
+            </label>
+          </section>
+
+          <div class="submit-bar">
+            <p id="formError" class="error-message" role="alert"></p>
+            <button type="submit" id="submitButton">提交我的体面菜单</button>
+          </div>
+        </form>
+
+        <section class="success-panel hidden" id="successPanel" aria-live="polite">
+          <p class="eyebrow">已收到</p>
+          <h2>王老板真是体面！</h2>
+          <p id="successName"></p>
+          <div id="successDishes" class="selected-list"></div>
+          <p class="auto-close">本页将在 <strong id="closeCountdown">10</strong> 秒后自动关闭。</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
